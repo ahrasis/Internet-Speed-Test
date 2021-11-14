@@ -1,8 +1,8 @@
-# speedtest
-Script to test internet speed and exit accordingly
+# Download Speed Test
+Script to test internet download speed using Ookla Speedtest CLI and exit accordingly.
 
 # How To Install Ookla Speedtest
-Go to https://www.speedtest.net/apps/cli and follow the instructions there.
+Go to https://www.speedtest.net/apps/cli and follow the instructions there. This script requires Ookla Speedtest.
 
 # How To Use With This Script
 To use this script, simply copy and run in your terminal as root user:
