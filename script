@@ -23,7 +23,12 @@ DownLoad=$(echo "$SpeedTest" | grep Download: | cut -d\: -f2 | cut -d\. -f1 | xa
 ## Test if the internet download speed ##
 if [ "$DownLoad" -lt "275" ]
 then
+  echo "Great! The internet download speed of $DownLoad mbps is acceptable. No need to report to ISP."
+  # Exit code to use with monit #
   exit 0
 else
+  echo "Alert! The internet download speed of $DownLoad mbps is not acceptable. Do file report to ISP."
+  echo "$SpeedTest"
+  # Exit code to use with monit #
   exit 124
 fi
