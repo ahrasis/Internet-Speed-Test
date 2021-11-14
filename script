@@ -21,7 +21,7 @@ DownLoad=$(echo "$SpeedTest" | grep Download: | cut -d\: -f2 | cut -d\. -f1 | xa
 
 ## Modify "275" to mbps of your ISP package ##
 ## Test if the internet download speed ##
-if [ "$DownLoad" -lt "275" ]
+if [ "$DownLoad" -gt "275" ]
 then
   echo "Great! The internet download speed of $DownLoad mbps is acceptable. No need to report to ISP."
   # Exit code to use with monit #
