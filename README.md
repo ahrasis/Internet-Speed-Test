@@ -8,8 +8,8 @@ Go to https://www.speedtest.net/apps/cli and follow the instructions there. This
 To use this script, simply copy and run in your terminal as root user:
 ```
 rm -rf /usr/share/dlspeedtest /etc/cron.d/dlspeedtest
-wget -O /usr/share/dlspeedtest https://raw.githubusercontent.com/ahrasis/autopdate/master/script
-wget -O /etc/cron.d/dlspeedtest https://raw.githubusercontent.com/ahrasis/autopdate/master/cron
+wget -O /usr/share/dlspeedtest https://raw.githubusercontent.com/ahrasis/dlspeedtest/master/script
+wget -O /etc/cron.d/dlspeedtest https://raw.githubusercontent.com/ahrasis/dlspeedtest/master/cron
 chmod +x /usr/share/dlspeedtest
 ```
 
