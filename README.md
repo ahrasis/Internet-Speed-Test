@@ -7,7 +7,7 @@ Go to https://www.speedtest.net/apps/cli and follow the instructions there. This
 # Using This Script
 To use this script, simply copy and run in your terminal as root user:
 ```
-rm -rf /usr/share/dlspeedtest /etc/cron.d/dlspeedtest
+rm -rf /usr/share/dlspeedtest /etc/cron.d/dlspeedtest /var/log/dlspeedtest
 wget -O /usr/share/ispspeedtest https://raw.githubusercontent.com/ahrasis/Internet-Speed-Test/main/script
 wget -O /etc/cron.d/ispspeedtest https://raw.githubusercontent.com/ahrasis/Internet-Speed-Test/main/cron
 chmod +x /usr/share/ispspeedtest
