@@ -1,4 +1,4 @@
-# Download Speed Test
+# Internet Speed Test
 Script to test internet download speed using Ookla Speedtest CLI and exit accordingly.
 
 # How To Install Ookla Speedtest
@@ -28,7 +28,7 @@ check program Internet-Speed-Test with path "/usr/share/ispspeedtest"
 The time settings in the cron file is set to run autopdate at every hour at minute 30, so do change it to suit your needs.
 
 # Log File
-A log file will be created at /var/log/dlspeedtest which may be disabled at your choice by editing the cron file.
+A log file will be created at /var/log/ispspeedtest which may be disabled at your choice by editing the cron file.
 
 # License
 Feel free to modify and fork, as though it is set to BSD3, none is mentioned in the script / cron file.
