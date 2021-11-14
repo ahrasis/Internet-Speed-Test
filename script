@@ -18,7 +18,7 @@ SpeedTest=$(speedtest --server-id=12108)
 DownLoad=$(echo "$SpeedTest" | grep Download: | cut -d\: -f2 | cut -d\. -f1 | xargs)
 ## Enable line below if you also want upload speed as well ##
 # UpLoad=$(echo "$SpeedTest" | grep Upload: | cut -d\: -f2 | cut -d\. -f1 | xargs) #
-echo $SpeedTest > /dev/stderr
+echo "$SpeedTest" > /dev/stderr
 
 ## Modify 275 to mbps of your ISP package ##
 ## Test if the internet download speed ##
