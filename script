@@ -1,13 +1,13 @@
 #!/bin/bash
 
 ### BEGIN INIT INFO
-# Provides: SpeedTest
+# Provides: ISP Internet Speed Test
 # Required-Start:  $local_fs $network
 # Required-Stop:  $local_fs
 # Default-Start:  2 3 4 5
 # Default-Stop:  0 1 6
-# Short-Description: SpeedTest using Ookla Speedtest
-# Description: SpeedTest using Ookla Speedtest for personal use
+# Short-Description: ISP Internet Speed Test using Ookla Speedtest
+# Description: ISP Internet Speed Test using Ookla Speedtest for personal use
 ### END INIT INFO
 
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -16,17 +16,23 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ## Define the needed CLI commands ##
 SpeedTest=$(speedtest --server-id=12108)
 DownLoad=$(echo "$SpeedTest" | grep Download: | cut -d\: -f2 | cut -d\. -f1 | xargs)
+## Enable line below if you also want upload speed as well ##
+# UpLoad=$(echo "$SpeedTest" | grep Upload: | cut -d\: -f2 | cut -d\. -f1 | xargs) #
 
-## Modify "275" to mbps of your ISP package ##
+## Modify 275 to mbps of your ISP package ##
+InternetSpeed="275"
 ## Test if the internet download speed ##
 echo $DownLoad > /dev/stderr
-if [ "$DownLoad" -gt "275" ]
+if [ "$DownLoad" -gt "$InternetSpeed" ]
+## Disable the above and enable line below if you also want upload speed as well ##
+# if [[ "$DownLoad" -gt "$InternetSpeed" ] && [ "$UpLoad" -gt "$InternetSpeed" ]]
+
 then
-  echo "Great! The internet download speed of $DownLoad mbps is acceptable. No need to report to ISP."
+  echo "Great! The internet speed of $DownLoad mbps is acceptable. No need to report to ISP."
   # Exit code to use with monit #
   exit 0
 else
-  echo "Alert! The internet download speed of $DownLoad mbps is not acceptable. Do file report to ISP."
+  echo "Alert! The internet speed of $DownLoad mbps is not acceptable. Do file report to ISP."
   echo "$SpeedTest"
   # Exit code to use with monit #
   exit 1
