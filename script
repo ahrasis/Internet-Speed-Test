@@ -11,8 +11,6 @@
 ### END INIT INFO
 
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-# Empty the logs
-> /var/log/dlspeedtest
 
 ## Modify this commands if you need to know upload speed or change target server id ##
 ## Define the needed CLI commands ##
