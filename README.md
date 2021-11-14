@@ -14,7 +14,7 @@ chmod +x /usr/share/dlspeedtest
 ```
 
 # Log File
-A log file will be created at /var/log/autopdate which may be disabled at your choice by editing the cron file.
+A log file will be created at /var/log/dlspeedtest which may be disabled at your choice by editing the cron file.
 
 # License
 Feel free to modify and fork, as though it is set to BSD3, none is mentioned in the script / cron file.
