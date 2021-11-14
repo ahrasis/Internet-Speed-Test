@@ -10,13 +10,17 @@
 # Description: SpeedTest using Ookla Speedtest for personal use
 ### END INIT INFO
 
-set -e
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+# Empty the logs
+> /var/log/dlspeedtest
 
-## find ip in the file ##
+## Modify this commands if you need to know upload speed or change target server id ##
+## Define the needed CLI commands ##
 SpeedTest=$(speedtest --server-id=12108)
 DownLoad=$(echo "$SpeedTest" | grep Download: | cut -d\: -f2 | cut -d\. -f1 | xargs)
 
-## Did we found IP address? Use exit status of the grep command ##
+## Modify "275" to mbps of your ISP package ##
+## Test if the internet download speed ##
 if [ "$DownLoad" -lt "275" ]
 then
   exit 0
