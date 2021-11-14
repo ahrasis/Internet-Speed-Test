@@ -1,0 +1,1 @@
+40 * * * * root /usr/share/dlspeedtest 2>&1 | while read line; do echo `/bin/date` "$line" >> /var/log/dlspeedtest; done
