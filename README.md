@@ -20,6 +20,8 @@ check program Internet-Speed-Test with path "/usr/share/dlspeedtest"
        with timeout 500 seconds
        if status != 0
           then exec "(/bin/sleep 2; echo username; /bin/sleep 2; echo password; /bin/sleep 2; echo dev reboot; /bin/sleep 2;) | telnet 192.168.100.100"
+       if status = 1 then alert
+       alert foo@baz
 ```
 
 # Cron Time Setting
