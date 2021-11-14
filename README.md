@@ -13,6 +13,14 @@ wget -O /etc/cron.d/dlspeedtest https://raw.githubusercontent.com/ahrasis/dlspee
 chmod +x /usr/share/dlspeedtest
 ```
 
+To use with monit refer to https://mmonit.com/monit/documentation/monit.html#PROGRAM-STATUS-TEST e.g. for restarting TP-Link router:
+```
+check program Download Speed Test with path /usr/share/dlspeedtest
+       with timeout 500 seconds
+       if status != 0
+          then exec "(/bin/sleep 2; echo username; /bin/sleep 2; echo password; /bin/sleep 2; echo dev reboot; /bin/sleep 2;) | telnet 192.168.100.100"
+```
+
 # Log File
 A log file will be created at /var/log/dlspeedtest which may be disabled at your choice by editing the cron file.
 
