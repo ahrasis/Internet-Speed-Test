@@ -23,7 +23,7 @@ check program Download Speed Test with path /usr/share/dlspeedtest
 ```
 
 # Cron Time Setting
-The time settings in the cron file is set to run autopdate at every hour at minute 40, so do change it to suit your needs.
+The time settings in the cron file is set to run autopdate at every hour at minute 30, so do change it to suit your needs.
 
 # Log File
 A log file will be created at /var/log/dlspeedtest which may be disabled at your choice by editing the cron file.
