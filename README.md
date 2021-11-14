@@ -4,7 +4,7 @@ Script to test internet download speed using Ookla Speedtest CLI and exit accord
 # How To Install Ookla Speedtest
 Go to https://www.speedtest.net/apps/cli and follow the instructions there. This script requires Ookla Speedtest.
 
-# How To Use With This Script
+# Using This Script
 To use this script, simply copy and run in your terminal as root user:
 ```
 rm -rf /usr/share/dlspeedtest /etc/cron.d/dlspeedtest
@@ -13,6 +13,7 @@ wget -O /etc/cron.d/dlspeedtest https://raw.githubusercontent.com/ahrasis/dlspee
 chmod +x /usr/share/dlspeedtest
 ```
 
+# Example For Monit
 To use with monit refer to https://mmonit.com/monit/documentation/monit.html#PROGRAM-STATUS-TEST e.g. for restarting TP-Link router:
 ```
 check program Download Speed Test with path /usr/share/dlspeedtest
