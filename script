@@ -11,7 +11,7 @@
 ### END INIT INFO
 
 ## Define the needed CLI commands ##
-## Remove --server-id=12108 to target any server ##
+## Remove --server-id=12108 to target any server or change ID ##
 SpeedTest=$(speedtest --server-id=12108)
 DownLoad=$(echo "$SpeedTest" | grep Download: | cut -d\: -f2 | cut -d\. -f1 | xargs)
 UpLoad=$(echo "$SpeedTest" | grep Upload: | cut -d\: -f2 | cut -d\. -f1 | xargs)
