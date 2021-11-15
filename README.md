@@ -13,7 +13,7 @@ chmod +x /usr/share/ispspeedtest
 ```
 
 # Example For Monit
-To use with monit refer to https://mmonit.com/monit/documentation/monit.html:
+To use with monit refer to https://mmonit.com/monit/documentation/monit.html. The best would be to print one word result in a file and then use monit to check that file with if content = "result" then...
 
 # Cron Time Setting
 The time settings in the cron file is set to run autopdate at every 15 minutes, so do change it to suit your needs.
