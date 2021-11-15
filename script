@@ -10,29 +10,22 @@
 # Description: ISP Internet Speed Test using Ookla Speedtest for personal use
 ### END INIT INFO
 
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
-## Modify this commands if you need to know upload speed or change target server id ##
 ## Define the needed CLI commands ##
+## Remove --server-id=12108 to target any server ##
 SpeedTest=$(speedtest --server-id=12108)
 DownLoad=$(echo "$SpeedTest" | grep Download: | cut -d\: -f2 | cut -d\. -f1 | xargs)
-## Enable line below if you also want upload speed as well ##
-# UpLoad=$(echo "$SpeedTest" | grep Upload: | cut -d\: -f2 | cut -d\. -f1 | xargs) #
-echo -e "$SpeedTest" > /dev/stderr
+UpLoad=$(echo "$SpeedTest" | grep Upload: | cut -d\: -f2 | cut -d\. -f1 | xargs)
+Url=$(echo "$SpeedTest" | grep URL:)
+Date=`/bin/date`
+## Your acceptable download / upload mbps speed parameter ##
+ISPDLSpeed="275"
+ISPULSpeed="200"
 
-## Modify 275 to mbps of your ISP package ##
 ## Test if the internet download speed ##
-InternetSpeed="275"
-if [ "$DownLoad" -gt "$InternetSpeed" ]
-## Disable the above and enable line below if you also want upload speed as well ##
-# if [[ "$DownLoad" -gt "$InternetSpeed" ] && [ "$UpLoad" -gt "$InternetSpeed" ]]
-
+if [[ "$DownLoad" -gt "$ISPDLSpeed" && "$UpLoad" -gt "$ISPULSpeed" ]]
+# Change if just one way speed is concerned e.g. : if [ "$DownLoad" -gt "$ISPDLSpeed" ]
 then
-  echo -e "Great! The internet speed of $DownLoad mbps is acceptable. No need to report to ISP." > /dev/stderr
-  # Exit code to use with monit #
-  exit 0
+  echo -e "\nThe internet speed is $DownLoad Mbps for download and $UpLoad Mbps for upload.\nBoth are within acceptable parameter. No need to report to ISP.\n$Url\n"
 else
-  echo -e "Alert! The internet speed of $DownLoad mbps is not acceptable. Do file report to ISP." > /dev/stderr
-  # Exit code to use with monit #
-  exit 1
+  echo -e "\nThe internet speed is $DownLoad Mbps for download and $UpLoad Mbps for upload.\nThey are not acceptable. Do file report to ISP.\n$Url\n"
 fi
