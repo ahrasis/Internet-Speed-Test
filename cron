@@ -1,1 +1,1 @@
-30 * * * * root /usr/share/ispspeedtest 2>&1 | while read line; do echo `/bin/date` "$line" >> /var/log/ispspeedtest; done
+*/15 * * * * root /usr/share/ispspeedtest 2>&1 | while read line; do echo `/bin/date` "$line" >> /var/log/ispspeedtest; done
