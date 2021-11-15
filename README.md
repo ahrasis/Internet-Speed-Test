@@ -16,7 +16,7 @@ chmod +x /usr/share/ispspeedtest
 To use with monit refer to https://mmonit.com/monit/documentation/monit.html:
 
 # Cron Time Setting
-The time settings in the cron file is set to run autopdate at every 30 minutes, so do change it to suit your needs.
+The time settings in the cron file is set to run autopdate at every 15 minutes, so do change it to suit your needs.
 
 # Log File
 A log file will be created at /var/log/ispspeedtest which may be disabled at your choice by editing the cron file.
