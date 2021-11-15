@@ -16,7 +16,6 @@ SpeedTest=$(speedtest --server-id=12108)
 DownLoad=$(echo "$SpeedTest" | grep Download: | cut -d\: -f2 | cut -d\. -f1 | xargs)
 UpLoad=$(echo "$SpeedTest" | grep Upload: | cut -d\: -f2 | cut -d\. -f1 | xargs)
 Url=$(echo "$SpeedTest" | grep URL: | xargs)
-Date=`/bin/date`
 ## Your acceptable download / upload mbps speed parameter ##
 ISPDLSpeed="275"
 ISPULSpeed="200"
