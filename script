@@ -28,4 +28,6 @@ then
   echo -e "\nThe internet speed is $DownLoad Mbps for download and $UpLoad Mbps for upload.\nBoth are within acceptable parameter. No need to report to ISP.\n$Url\n"
 else
   echo -e "\nThe internet speed is $DownLoad Mbps for download and $UpLoad Mbps for upload.\nThey are not acceptable. Do file report to ISP.\n$Url\n"
+  # echo to a file one word result e.g. "failed" to use with monit check file /path/file/name with if content = "failed"
+  # echo -e "failed" > /path/file/name
 fi
