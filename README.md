@@ -11,6 +11,7 @@ apt remove speedtest-cli -y
 apt install speedtest -y
 ```
 
+# For Ubuntu 24.04 Noble Nombat
 After that just add Sources "list" file - The Old Way (Single Line Format)
 ```
 rm /etc/apt/sources.list.d/ookla_speedtest-cli.list
@@ -27,6 +28,8 @@ Suites: jammy
 Components: main
 Signed-By: /usr/share/keyrings/ookla_speedtest-cli-archive-keyring.gpg" | sudo tee -a /etc/apt/sources.list.d/ookla_speedtest-cli.sources
 ```
+
+Yes, you need to use jammy instead of noble according to [an Ookla article](https://support.ookla.com/hc/en-us/articles/32139787616141-Ubuntu-24-04-noble).
 
 # Using This Script
 To use this script, simply copy and run in your terminal as root user:
