@@ -13,12 +13,14 @@ apt install speedtest -y
 
 Add Sources "list" file - The Old Way (Single Line Format)
 ```
+rm /etc/apt/sources.list.d/ookla_speedtest-cli.list
 echo "deb [signed-by=/usr/share/keyrings/ookla_speedtest-cli-archive-keyring.gpg] https://packagecloud.io/ookla/speedtest-cli/ubuntu jammy main
 deb-src [signed-by=/usr/share/keyrings/ookla_speedtest-cli-archive-keyring.gpg] https://packagecloud.io/ookla/speedtest-cli/ubuntu jammy main" | sudo tee -a /etc/apt/sources.list.d/ookla_speedtest-cli.list
 ```
 
 Just use "sources" file - The New Way (DEB822 Source Format)
 ```
+rm /etc/apt/sources.list.d/ookla_speedtest-cli.sources
 echo "Types: deb
 URIs: https://packagecloud.io/ookla/speedtest-cli/ubuntu/
 Suites: jammy
