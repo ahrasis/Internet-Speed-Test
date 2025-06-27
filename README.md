@@ -1,8 +1,30 @@
 # Internet Speed Test
 Script to test internet download speed using Ookla Speedtest CLI.
 
-# How To Install Ookla Speedtest
+# How To Install & Setup Ookla Speedtest
 Go to https://www.speedtest.net/apps/cli and follow the instructions there. This script requires Ookla Speedtest.
+
+Since there may be some errors, below is the modified way:
+```
+curl -fsSL https://packagecloud.io/ookla/speedtest-cli/gpgkey | gpg --dearmor > /usr/share/keyrings/ookla_speedtest-cli-archive-keyring.gpg
+apt remove speedtest-cli -y
+apt install speedtest -y
+```
+
+Add Sources "list" file - The Old Way (Single Line Format)
+```
+echo "deb [signed-by=/usr/share/keyrings/ookla_speedtest-cli-archive-keyring.gpg] https://packagecloud.io/ookla/speedtest-cli/ubuntu jammy main
+deb-src [signed-by=/usr/share/keyrings/ookla_speedtest-cli-archive-keyring.gpg] https://packagecloud.io/ookla/speedtest-cli/ubuntu jammy main" | sudo tee -a /etc/apt/sources.list.d/ookla_speedtest-cli.list
+```
+
+Just use "sources" file - The New Way (DEB822 Source Format)
+```
+echo "Types: deb
+URIs: https://packagecloud.io/ookla/speedtest-cli/ubuntu/
+Suites: jammy
+Components: main
+Signed-By: /usr/share/keyrings/ookla_speedtest-cli-archive-keyring.gpg" | sudo tee -a /etc/apt/sources.list.d/ookla_speedtest-cli.sources
+```
 
 # Using This Script
 To use this script, simply copy and run in your terminal as root user:
